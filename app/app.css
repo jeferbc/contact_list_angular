@@ -1,25 +1,40 @@
-/* app css stylesheet */
-
-.menu {
-  list-style: none;
-  border-bottom: 0.1em solid black;
-  margin-bottom: 2em;
-  padding: 0 0 0.5em;
+.header {
+  display: inline-flex;
+  width: 100%;
+  align-items: center;
 }
 
-.menu:before {
-  content: "[";
+.header > a {
+  color: red;
+  text-decoration: none;
 }
 
-.menu:after {
-  content: "]";
+.contact {
+  display: flex;
+  flex-direction: column;
+  color: red;
 }
 
-.menu > li {
-  display: inline;
+.contact > a {
+  text-decoration: none;
+  color: inherit;
 }
 
-.menu > li + li:before {
-  content: "|";
-  padding-right: 0.3em;
+.contact:hover {
+  text-decoration: none;
+  background-color: red;
+  color: white;
+  cursor:pointer;
+}
+
+.contact > a:hover {
+  text-decoration: none;
+  background-color: red;
+  color: white;
+  cursor:pointer;
+}
+
+.contact-info {
+  display: inline-flex;
+  color: gray;
 }

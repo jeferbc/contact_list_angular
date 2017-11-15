@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp.contactForm', ['ngRoute'])
+angular.module('myApp.contactForm', [])
 
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/contacts/new', {
@@ -17,8 +17,8 @@ angular.module('myApp.contactForm', ['ngRoute'])
     let name = $scope.contact.name;
     let email = $scope.contact.email;
     let mobile = $scope.contact.mobile;
-    let notes = $scope.contact.notes;
-    let contactListRef = firebase.database().ref();
+    let notes = $scope.contact.notes || "";
+    let contactListRef = firebase.database().ref("contacts");
     let contact = contactListRef.push();
     contact.set({
       name: name,
