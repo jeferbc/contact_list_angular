@@ -6,6 +6,7 @@ angular.module('myApp', [
   'myApp.contactForm',
   'myApp.home',
   'myApp.version',
+  'myApp.show',
   'firebase'
 ]).
 config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
