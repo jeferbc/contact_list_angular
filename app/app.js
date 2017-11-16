@@ -7,6 +7,7 @@ angular.module('myApp', [
   'myApp.home',
   'myApp.version',
   'myApp.show',
+  'myApp.delete',
   'firebase'
 ]).
 config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {

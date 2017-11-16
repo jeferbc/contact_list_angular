@@ -13,5 +13,6 @@ angular.module('myApp.show', [])
   let obj = new $firebaseObject(contactRef);
   contactRef.on('value', function(snapshot) {
     $scope.contact = snapshot.val();
+    $scope.contact["id"] = $routeParams.ID;
   })
-});
+})
