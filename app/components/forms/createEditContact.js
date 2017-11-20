@@ -4,11 +4,11 @@ angular.module('myApp.createEditContact', [])
 
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/contacts/new', {
-    templateUrl: 'views/forms/contactForm.html',
+    templateUrl: 'components/forms/contactForm.html',
     controller: 'EditContactCtrl'
   });
   $routeProvider.when('/contacts/edit/:ID', {
-    templateUrl: 'views/forms/contactForm.html',
+    templateUrl: 'components/forms/contactForm.html',
     controller: 'EditContactCtrl'
   });
 }])

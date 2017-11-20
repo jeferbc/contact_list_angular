@@ -3,7 +3,7 @@ angular.module('myApp.show', [])
 
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/show/:ID', {
-    templateUrl: 'views/show/showContact.html',
+    templateUrl: 'components/show/showContact.html',
     controller: 'ShowCtrl'
   });
 }])
