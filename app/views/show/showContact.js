@@ -10,7 +10,6 @@ angular.module('myApp.show', [])
 
 .controller('ShowCtrl', function($scope, $location, $firebaseObject, $routeParams) {
   let contactRef = firebase.database().ref("contacts").child($routeParams.ID);
-  let obj = new $firebaseObject(contactRef);
   contactRef.on('value', function(snapshot) {
     $scope.contact = snapshot.val();
     $scope.contact["id"] = $routeParams.ID;
