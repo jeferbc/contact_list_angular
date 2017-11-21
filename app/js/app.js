@@ -8,9 +8,10 @@ angular.module('myApp', [
   'myApp.version',
   'myApp.show',
   'myApp.delete',
-  'firebase'
-]).
-config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
+  'firebase',
+  'myApp.firebase'
+])
+.config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
   $locationProvider.hashPrefix('!');
 
   $routeProvider.otherwise({redirectTo: '/'});

@@ -13,16 +13,13 @@ angular.module('myApp.createEditContact', [])
   });
 }])
 
-.controller('EditContactCtrl', function($scope, $location, $firebaseObject, $routeParams) {
-  let contactListRef = firebase.database().ref("contacts");
+.controller('EditContactCtrl', function($scope, $location, $routeParams, firebaseService) {
   if ($routeParams.ID !== undefined){
+    let contactListRef = firebase.database().ref("contacts");
     let contactRef = contactListRef.child($routeParams.ID);
-    contactRef.on('value', function(snapshot) {
-      $scope.name = snapshot.val()['name'];
-      $scope.email = snapshot.val()['email'];
-      $scope.mobile = snapshot.val()['mobile'];
-      $scope.notes = snapshot.val()['notes'];
-    });
+    contactRef.on('value', function(snapshot){
+      $scope.contact = snapshot.val();
+    })
   }
 
   $scope.cancel = function () {
@@ -30,21 +27,7 @@ angular.module('myApp.createEditContact', [])
   }
 
   $scope.createEditContact = function () {
-    let contactListRef = firebase.database().ref("contacts");
-    if ($routeParams.ID === undefined)
-      var contact = contactListRef.push();
-    else
-      var contact = contactListRef.child($routeParams.ID);
-    let name = $scope.name;
-    let email = $scope.email;
-    let mobile = $scope.mobile;
-    let notes = $scope.notes || "";
-    contact.set({
-      name: name,
-      email: email,
-      mobile: mobile,
-      notes: notes
-    });
+    firebaseService.createEditContact($scope.contact, $routeParams.ID);
     $location.path('/');
   }
 });
